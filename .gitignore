@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 venv/
+local_s3/
 .venv/
 cred.txt
 
