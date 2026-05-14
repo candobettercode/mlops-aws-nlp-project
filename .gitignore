@@ -5,6 +5,8 @@ venv/
 local_s3/
 .venv/
 cred.txt
+data/
+models/
 
 # C extensions
 *.so
