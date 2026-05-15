@@ -14,25 +14,25 @@ warnings.filterwarnings("ignore")
 # Below code block is for production use
 # -------------------------------------------------------------------------------------
 # Set up DagsHub credentials for MLflow tracking
-dagshub_token = os.getenv("CAPSTONE_TEST")
-if not dagshub_token:
-    raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
+#dagshub_token = os.getenv("CAPSTONE_TEST")
+#if not dagshub_token:
+#    raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
 
-os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
-os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+#os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+#os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-dagshub_url = "https://dagshub.com"
-repo_owner = "vikashdas770"
-repo_name = "YT-Capstone-Project"
-# Set up MLflow tracking URI
-mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
+#dagshub_url = "https://dagshub.com"
+#repo_owner = "vikashdas770"
+#repo_name = "YT-Capstone-Project"
+## Set up MLflow tracking URI
+#mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 # -------------------------------------------------------------------------------------
 
 
 # Below code block is for local use
 # -------------------------------------------------------------------------------------
-# mlflow.set_tracking_uri('https://dagshub.com/vikashdas770/YT-Capstone-Project.mlflow')
-# dagshub.init(repo_owner='vikashdas770', repo_name='YT-Capstone-Project', mlflow=True)
+mlflow.set_tracking_uri('https://dagshub.com/candobettercode/mlops-aws-nlp-project.mlflow')
+dagshub.init(repo_owner='candobettercode', repo_name='mlops-aws-nlp-project', mlflow=True)
 # -------------------------------------------------------------------------------------
 
 
@@ -53,7 +53,8 @@ def load_model_info(file_path: str) -> dict:
 def register_model(model_name: str, model_info: dict):
     """Register the model to the MLflow Model Registry."""
     try:
-        model_uri = f"runs:/{model_info['run_id']}/{model_info['model_path']}"
+        #model_uri = f"runs:/{model_info['run_id']}/{model_info['model_path']}"
+        model_uri = model_info["model_uri"]
         
         # Register the model
         model_version = mlflow.register_model(model_uri, model_name)
