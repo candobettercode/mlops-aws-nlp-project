@@ -62,7 +62,7 @@
 35. go to root dir and: "docker build -t capstone-app:latest ."
 36. Try running the image: "docker run -p 8888:5000 capstone-app:latest"
     - This run will give 'OSError: capstone_test environment variable is not set'...obviously
-    - alternate: docker run -p 8888:5000 -e CAPSTONE_TEST=54b1d67648a9b1267ef906fsdfsd8b292f779f0 capstone-app:latest
+    - alternate: docker run -p 8888:5000 -e CAPSTONE_TEST=ec0558e140ed224f4310d233ae34f4b1f11b1406 capstone-app:latest
     - docker push youruser/capstone-app:latest (optional)
     - optional: try to delete image locally and pull it from dockerhub and run (optional)
 
@@ -107,7 +107,7 @@ If the path points to your Anaconda environment (e.g., C:\Users\Personal\anacond
 ----------------------------------------------------------------------------------
 
 39. Create an EKS cluster:
-    eksctl create cluster --name flask-app-cluster --region us-east-1 --nodegroup-name flask-app-nodes --node-type t3.small --nodes 1 --nodes-min 1 --nodes-max 1 --managed
+    
 
 40. Update kubectl Config(Once the cluster is created, eksctl will automatically update your kubectl config file. However, you can verify and set it manually using:)
 aws eks --region us-east-1 update-kubeconfig --name flask-app-cluster (This ensures your kubectl is pointing to the correct cluster.)

@@ -5,11 +5,14 @@ import os
 import pandas as pd
 from prometheus_client import Counter, Histogram, generate_latest, CollectorRegistry, CONTENT_TYPE_LATEST
 import time
+import nltk
+nltk.data.path.append("/usr/local/nltk_data")
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 import string
 import re
 import dagshub
+
 
 import warnings
 warnings.simplefilter("ignore", UserWarning)
